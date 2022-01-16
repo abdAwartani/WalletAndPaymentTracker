@@ -93,11 +93,11 @@ namespace WalletAndPaymentTracker.API
             {
                 app.UseDeveloperExceptionPage();
             }
-            app.UseCors("AllowAllOrigins");
+           
             app.UseHttpsRedirection();
 
             app.UseRouting();
-
+            app.UseCors("AllowAllOrigins");
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
