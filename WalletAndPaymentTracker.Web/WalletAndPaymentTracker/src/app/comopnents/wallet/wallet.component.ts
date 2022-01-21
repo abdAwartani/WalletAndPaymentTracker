@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Wallet } from '../../Classes/Wallet';
+import { WalletService } from '../../services/wallet.service';
 
 @Component({
   selector: 'app-wallet',
@@ -12,7 +14,7 @@ export class WalletComponent implements OnInit {
   inputIndex: number = -1;
   lstInput: Input[] = [];
 
-  constructor() { }
+  constructor(private walletService: WalletService) { }
 
   ngOnInit(): void {
   }
@@ -42,7 +44,17 @@ export class WalletComponent implements OnInit {
       this.lstInput.splice(index, 1);
     }
   }
+
+  save() {
+    var wallet: Wallet = new Wallet();
+
+    wallet.walletJson = JSON.stringify(this.lstInput);
+
+    this.walletService.add(wallet).subscribe(res => { });
+  }
 }
+
+
 
 export class Input {
   name: string = '';

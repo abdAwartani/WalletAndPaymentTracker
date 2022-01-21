@@ -17,7 +17,7 @@ namespace WalletAndPaymentTracker.API.Controllers
         }
 
         [HttpGet]
-        [Route("GetAll")]
+        [Route("getAll")]
         public IActionResult GetAll()
         {
             var result = _walletService.GetAll();
@@ -25,10 +25,10 @@ namespace WalletAndPaymentTracker.API.Controllers
         }
 
         [HttpGet]
-        [Route("{id}")]
-        public IActionResult Get([FromRoute] string id)
+        [Route("{name}")]
+        public IActionResult Get([FromRoute] string name)
         {
-            var result = _walletService.Get(id);
+            var result = _walletService.Get(name);
             return Ok(Newtonsoft.Json.JsonConvert.SerializeObject(result));
         }
 
@@ -49,7 +49,7 @@ namespace WalletAndPaymentTracker.API.Controllers
         }
 
         [HttpDelete]
-        [Route("{id}")]
+        [Route("{name}")]
         public IActionResult Delete([FromRoute] string name)
         {
             var result = _walletService.Delete(name); ;

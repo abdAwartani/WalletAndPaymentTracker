@@ -1,51 +1,67 @@
-<table class="table">
-  <thead>
-    <tr>
-      <th>
-        <label for="" l10nTranslate>Name</label>
-      </th>
-      <th>
-        <label for="" l10nTranslate>value</label>
-      </th>
-      <th>
-        <label for="" l10nTranslate>Type</label>
-      </th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>
-        <input type="hidden" [(ngModel)]="inputIndex" name="inputIndex">
-        <input type="text" [(ngModel)]="inputName" name="inputName" maxlength="255" class="form-control" >
-      </td>
-      <td>
-        <input type="text" [(ngModel)]="inputValue" name="inputValue" maxlength="255" class="form-control" >
-      </td>
-      <td>
-        <input type="text" [(ngModel)]="inputType" name="inputType" maxlength="255" class="form-control" >
-      </td>
-      <td>
-        <div>
-          <button class="btn-clean btn-none-hover" (click)="addInput()"><span class="round-shape"><i class="fa fa-plus"></i></span></button>
-        </div>
-      </td>
-    </tr>
-    <tr *ngFor="let item of lstInput;let i=index">
-      <td>
-        <input type="text" [(ngModel)]="item.name" class="form-control">
-      </td>
-      <td>
-        <input type="text" [(ngModel)]="item.value" class="form-control">
-      </td>
-      <td>
-        <input type="text" [(ngModel)]="item.type" class="form-control">
-      </td>
-      <td>
-        <div>
-          <button class="btn-clean btn-none-hover" (click)="removeInput(i)"><span class="round-shape-red"><i class="fa fa-trash"></i></span></button>
-        </div>
-      </td>
-    </tr>
-  </tbody>
-</table>
+<div>
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>
+              <label for="" l10nTranslate>Name</label>
+            </th>
+            <th>
+              <label for="" l10nTranslate>value</label>
+            </th>
+            <th>
+              <label for="" l10nTranslate>Type</label>
+            </th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <input type="hidden" [(ngModel)]="inputIndex" name="inputIndex">
+              <input type="text" [(ngModel)]="inputName" name="inputName" maxlength="255" class="form-control">
+            </td>
+            <td>
+              <input type="text" [(ngModel)]="inputValue" name="inputValue" maxlength="255" class="form-control">
+            </td>
+            <td>
+              <input type="text" [(ngModel)]="inputType" name="inputType" maxlength="255" class="form-control">
+            </td>
+            <td>
+              <div>
+                <button class="btn-clean btn-none-hover" (click)="addInput()"><span class="round-shape"><i class="fa fa-plus"></i>Add</span></button>
+              </div>
+            </td>
+          </tr>
+          <tr *ngFor="let item of lstInput;let i=index">
+            <td>
+              <input type="text" [(ngModel)]="item.name" class="form-control">
+            </td>
+            <td>
+              <input type="text" [(ngModel)]="item.value" class="form-control">
+            </td>
+            <td>
+              <input type="text" [(ngModel)]="item.type" class="form-control">
+            </td>
+            <td>
+              <div>
+                <button class="btn-clean btn-none-hover" (click)="removeInput(i)"><span class="round-shape-red"><i class="fa fa-trash"></i>Delete</span></button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <button type="button" (click)="save()" class="btn btn-primary">Save</button>
+    </div>
+  </div>
+  
+
+
+</div>
+
+

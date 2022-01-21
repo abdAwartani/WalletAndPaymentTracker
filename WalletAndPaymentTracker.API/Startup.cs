@@ -11,6 +11,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WalletAndPaymentTracker.API.Services.Concrete;
+using WalletAndPaymentTracker.API.Services.Interfaces;
 
 namespace WalletAndPaymentTracker.API
 {
@@ -77,6 +79,8 @@ namespace WalletAndPaymentTracker.API
                 //    }
                 //});
             });
+
+            services.AddTransient<IWalletService, WalletService>();
 
         }
 
